@@ -21,6 +21,29 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- db -->
+	<beans:bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/tsDB?useSSL=false&amp;serverTimezone=UTC" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="1234" />
+	</beans:bean>
+	
+	<!-- dao -->
+	<beans:bean id="testDao" class="com.stot.dao.TestDao" scope="singleton">
+		<beans:property name="sqlSessionFactory" ref="ssf" />
+	</beans:bean>
+	
+	<!-- xml -->
+	<beans:bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="ds" />
+		<beans:property name="configLocation" value="/WEB-INF/config.xml" />
+	</beans:bean>
+	
+	<!-- file upload -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000"/>
+	</beans:bean>
 	
 	<!-- scan -->
 	<context:component-scan base-package="com.stot.controller" />
