@@ -17,11 +17,16 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	<!-- scan -->
 	<context:component-scan base-package="com.stot.controller" />
+	<context:component-scan base-package="com.stot.bean"/>
+	<context:component-scan base-package="com.stot.dao"/>
+	<context:component-scan base-package="com.stot.xml"/>
 	
 	
 	
