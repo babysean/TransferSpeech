@@ -68,12 +68,8 @@ textarea {
 
 	<!-- ---------------------------------------- JavaScript ---------------------------------------- -->
 
-	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script>
-		// JavaScript & jQuery 충돌 방지
-		jQuery.noConflict ();
 		
 		$(function() {
 			
